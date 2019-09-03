@@ -20,8 +20,8 @@ Models:
     - deceased (boolean)
   CheckOutLog
     - comment (string)
-    - user_id
-    - book_id
+    - user_id (integer)
+    - book_id (integer)
 
 Relationships:
   User
@@ -59,3 +59,4 @@ Other Notes:
   - A librarian has the ability to create new books but not check them out
   - A normal user can check books out, but not create them
   - Think about adding age restrictions on books?
+  - Think about adding check in and check out dates to look for overdue books?
