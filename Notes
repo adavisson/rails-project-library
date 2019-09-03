@@ -1,0 +1,55 @@
+Library Project
+----------------
+Models:
+  User
+    - name (string)
+    - age (integer)
+    - email (string)
+    - password_digest (string)
+    - librarian (boolean)
+  Book
+    - title (string)
+    - author_id (integer)
+    - genre_id (integer)
+    - checked_out (boolean)
+    - present_user_id (integer)
+  Genre
+    - name (string)
+  Author
+    - name (string)
+    - deceased (boolean)
+  CheckOutLog
+    - comment (string)
+    - user_id
+    - book_id
+
+Relationships:
+  User
+    - has_many :check_out_logs
+    - has_many :books, through: :check_out_logs
+  Book
+    - belongs_to :author
+    - belongs_to :genre
+    - has_many :check_out_logs
+    - has_many :users, through: :check_out_logs
+  Genre
+    - has_many :books
+    - has_many :authors, through: :books
+  Author
+    - has_many :books
+    - has_many :genres, through: :books
+  CheckOutLog
+    - belongs_to :user
+    - belongs_to :book
+
+
+Chekclist:
+  - Models must include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
+  - Join table must include a user-submittable attribute (ie. comment in CheckOutLog)
+  - Models must include reasonable validations for simple attributes (eg. email, password length, etc.)
+  - Must include at least one class level ActiveRecord scope method
+  - Must include standard user authentication
+  - App must allow for authentication from some other service (Going to use Google)
+  - Must include a nested resource with appropriate RESTful URLs (ie. new book under Author or Genre page)
+  - App must be DRY
+  - Do not user scaffolding
