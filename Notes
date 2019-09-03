@@ -43,7 +43,7 @@ Relationships:
     - belongs_to :book
 
 
-Chekclist:
+Checklist:
   - Models must include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
   - Join table must include a user-submittable attribute (ie. comment in CheckOutLog)
   - Models must include reasonable validations for simple attributes (eg. email, password length, etc.)
@@ -53,3 +53,9 @@ Chekclist:
   - Must include a nested resource with appropriate RESTful URLs (ie. new book under Author or Genre page)
   - App must be DRY
   - Do not user scaffolding
+
+Other Notes:
+  - Commit frequently and make messages meaningful
+  - A librarian has the ability to create new books but not check them out
+  - A normal user can check books out, but not create them
+  - Think about adding age restrictions on books?
