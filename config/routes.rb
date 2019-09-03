@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'welcome#home'
   resources :check_out_logs
   resources :authors
   resources :genres
