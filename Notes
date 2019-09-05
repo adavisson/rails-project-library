@@ -63,3 +63,4 @@ Other Notes:
   - Condense routes.rb to only allow routes that are used
   - Add Delete Account functionality?
   - Restrict show page to current user
+  - Write check_out_logs functionality as nested under books
