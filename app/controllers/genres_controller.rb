@@ -1,5 +1,12 @@
 class GenresController < ApplicationController
 
+  before_action :require_login
+  before_action :require_librarian, only: [:new, :create]
+
+  def index
+    @genres = Genre.all
+  end
+
   def new
     @genre = Genre.new
   end

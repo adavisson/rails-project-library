@@ -1,1 +1,10 @@
 <h1><%= @genre.name %></h1>
+
+<br><br>
+
+<% if @genre.books != [] %>
+  <h2>Books in the genre of <%= @genre.name %></h2>
+  <% @genre.books.each do |book| %>
+    <p><%= link_to "#{book.title}", book_path(book) %> - <%= link_to "#{book.author.name}", author_path(book.author) %></p>
+  <% end %>
+<% end %>

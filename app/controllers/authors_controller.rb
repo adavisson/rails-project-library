@@ -1,5 +1,12 @@
 class AuthorsController < ApplicationController
 
+  before_action :require_login
+  before_action :require_librarian, only: [:new, :create]
+
+  def index
+    @authors = Author.all
+  end
+
   def new
     @author = Author.new
   end
