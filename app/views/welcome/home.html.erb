@@ -7,3 +7,11 @@
   <p><%= link_to "Add Author", new_author_path %></p>
   <p><%= link_to "Add Genre", new_genre_path %></p>
 <% end %>
+
+<br><br>
+
+<% if @user %>
+  <p><strong><%= link_to "View Books", books_path %></strong></p>
+  <p><strong><%= link_to "View Authors", books_path %></strong></p>
+  <p><strong><%= link_to "View Genres", books_path %></strong></p>
+<% end %>

@@ -4,6 +4,13 @@ def require_login
   redirect_to root_url unless session.include? :user_id
 end
 
+def require_librarian
+  if require_login
+    user = current_user
+    redirect_to root_url unless user.librarian
+  end
+end
+
 def current_user
   if session.include? :user_id
     User.find(session[:user_id])

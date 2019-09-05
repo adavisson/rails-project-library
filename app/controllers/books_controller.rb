@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
 
+  before_action :require_librarian
+  skip_before_action :require_librarian, only: [:show]
+
   def new
     @book = Book.new
   end
