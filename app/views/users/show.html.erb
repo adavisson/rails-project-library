@@ -2,3 +2,12 @@
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>Age:</strong> <%= @user.age %></p>
 <p><strong>Librarian?</strong> <%= @user.librarian ? 'yes' : 'no' %></p>
+
+<br>
+
+<% if @user.books != [] %>
+  <h2>Your books<h2>
+  <% @user.books.each do |book| %>
+    <%= link_to "#{book.title}", book_path(book) %> - <%= link_to "#{book.author.name}", author_page(book.author) %><br>
+  <% end%>
+<% end%>

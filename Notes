@@ -62,3 +62,4 @@ Other Notes:
   - Think about adding check in and check out dates to look for overdue books?
   - Condense routes.rb to only allow routes that are used
   - Add Delete Account functionality?
+  - Restrict show page to current user
