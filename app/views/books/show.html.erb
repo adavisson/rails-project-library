@@ -1,0 +1,4 @@
+<h1><%= @book.title %></h1>
+<p><strong>Author: </strong><%= @book.author.name %></p>
+<p><strong>Genre: </strong><%= @book.genre.name %></p>
+<p><strong>Is this book available? </strong><%= @book.checked_out ? 'no' : 'yes' %></p>
