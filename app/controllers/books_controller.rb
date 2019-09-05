@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :require_librarian
-  skip_before_action :require_librarian, only: [:index, :show]
+  before_action :require_librarian, only: [:new, :create]
 
   def index
     @books = Book.all
@@ -18,6 +17,18 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+  end
+
+  def check_out_page
+    @book = Book.find(params[:id])
+    @user = current_user
+  end
+
+  def check_out
+    book = Book.find(params[:id])
+    user = current_user
+    book.check_out(user, params[:comment])
+    redirect_to user_page(user)
   end
 
   private
