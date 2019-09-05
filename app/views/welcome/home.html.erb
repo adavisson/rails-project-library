@@ -1,1 +1,9 @@
 <h1>Welcome to the Flatiron Library</h1>
+
+<br><br>
+
+<% if @user && @user.librarian %>
+  <p><%= link_to "Add Book", new_book_path %></p>
+  <p><%= link_to "Add Author", new_author_path %></p>
+  <p><%= link_to "Add Genre", new_genre_path %></p>
+<% end %>
