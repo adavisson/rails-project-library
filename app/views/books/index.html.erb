@@ -1,0 +1,9 @@
+<h1>List of Books</h1>
+
+<% @books.each do |book| %>
+  <br><br>
+  <p><strong><%= book.title %></strong><p>
+  <p><strong>Author: </strong><%= book.author.name %></p>
+  <p><strong>Genre: </strong><%= book.genre.name %></p>
+  <p><strong>Is this book available? </strong><%= book.checked_out ? 'no' : 'yes' %></p>
+<% end %>
