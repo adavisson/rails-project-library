@@ -60,3 +60,5 @@ Other Notes:
   - A normal user can check books out, but not create them
   - Think about adding age restrictions on books?
   - Think about adding check in and check out dates to look for overdue books?
+  - Condense routes.rb to only allow routes that are used
+  - Add Delete Account functionality?
