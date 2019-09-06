@@ -3,4 +3,11 @@ class User < ApplicationRecord
   
   has_many :check_out_logs
   has_many :books, through: :check_out_logs
+
+  def self.find_or_create_by_omniauth(auth)
+    where(email: auth[:info][:email]).first_or_create do |user|
+      user.name = auth[:info][:name]
+      user.password = SecureRandom.hex
+    end
+  end
 end

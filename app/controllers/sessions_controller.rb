@@ -6,13 +6,9 @@ class SessionsController < ApplicationController
   def create
     if auth
       # Logged in via oauth
-      raise auth.inspect
-      #name: Andrew Davisson
-      #email: akdavisson4@gmail.com
-      user = User.find_or_create_by(uid: auth[:uid]) do |u|
-        u.name = auth['info']['name']
-        u.email = auth['info']['email']
-      end
+      user = User.find_or_create_by_omniauth(auth)
+      session[:user_id] = user.id
+      redirect_to root_path
     else
       # Normal login flow
       user = User.find_by(email: params[:email])
