@@ -20,18 +20,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-  def check_out_page
-    @book = Book.find(params[:id])
-    @user = current_user
-  end
-
-  def check_out
-    book = Book.find(params[:id])
-    user = current_user
-    book.check_out(user, params[:comment])
-    redirect_to user_page(user)
-  end
-
   private
 
   def book_params
