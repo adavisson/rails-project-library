@@ -7,6 +7,6 @@
 <% if @user.books != [] %>
   <h2>Your books<h2>
   <% @user.books.each do |book| %>
-    <%= link_to "#{book.title}", book_path(book) %> - <%= link_to "#{book.author.name}", author_page(book.author) %><br>
+    <%= link_to "#{book.title}", book_path(book) %> - <%= link_to "#{book.author.name}", author_path(book.author) %><br>
   <% end%>
 <% end%>

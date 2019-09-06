@@ -3,4 +3,6 @@
 <p><strong>Genre: </strong><%= @book.genre.name %></p>
 <p><strong>Is this book available? </strong><%= @book.checked_out ? 'no' : 'yes' %></p>
 
-<%= button_to "Check Out", check_out_page_path(@book.id), class: "btn btn-primary", method: :get %>
+<% if !@book.checked_out %>
+  <%= button_to "Check Out", check_out_page_path(@book.id), class: "btn btn-primary", method: :get %>
+<% end %>

@@ -8,6 +8,9 @@ class CheckOutLogsController < ApplicationController
 
   def create
     CheckOutLog.create(check_out_log_params)
+    book = Book.find(params[:check_out_log][:book_id])
+    book.checked_out = true
+    book.save
     redirect_to user_path(current_user)
   end
 
