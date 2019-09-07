@@ -14,7 +14,7 @@ class CheckOutLogsController < ApplicationController
       flash[:notice] = "This book has already been checked out."
       render book_path(book)
     else
-      check_out = CheckOutLog.create(check_out_log_params)
+      CheckOutLog.create(check_out_log_params)
       book.checked_out = true
       book.present_user_id = params[:check_out_log][:user_id]
       book.save
