@@ -22,6 +22,26 @@ class CheckOutLogsController < ApplicationController
     end
   end
 
+  def check_in
+    user = current_user
+    book = Book.find(params[:book_id])
+    if !book.checked_out
+      flash[:notice] = "This book is not checked out."
+      render book_path(book)
+    elsif (book.checked_out && (book.present_user_id == user.id))
+      check_in = CheckOutLog.find(params[:id])
+      check_in.check_in_date = Date.today
+      book.checked_out = false
+      book.present_user_id = nil
+      check_in.save
+      book.save
+      redirect_to user_path(user)
+    else
+      flash[:notice] = "This book is not checked out to you."
+      render book_path(book)
+    end
+  end
+
   private
 
   def check_out_log_params

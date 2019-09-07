@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # Nested Routes
   resources :books, only: [:show] do
     resources :check_out_logs, only: [:new]
+    post '/check_out_logs/check_in/:id' => 'check_out_logs#check_in', as: 'check_in'
   end
 
   get '/signin' => 'sessions#new'
