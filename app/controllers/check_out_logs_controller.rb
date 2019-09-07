@@ -1,7 +1,7 @@
 class CheckOutLogsController < ApplicationController
 
   before_action :require_standard_user
-  
+
   def new
     @book = Book.find(params[:book_id])
     @user = current_user
@@ -14,7 +14,7 @@ class CheckOutLogsController < ApplicationController
       flash[:notice] = "This book has already been checked out."
       render book_path(book)
     else
-      CheckOutLog.create(check_out_log_params)
+      check_out = CheckOutLog.create(check_out_log_params)
       book.checked_out = true
       book.present_user_id = params[:check_out_log][:user_id]
       book.save
@@ -25,6 +25,6 @@ class CheckOutLogsController < ApplicationController
   private
 
   def check_out_log_params
-    params.require(:check_out_log).permit(:book_id, :user_id, :comment)
+    params.require(:check_out_log).permit(:book_id, :user_id, :comment, :check_out_date)
   end
 end
