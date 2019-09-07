@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url unless user.librarian
   end
 
+  def require_standard_user
+    require_login
+    user = current_user
+    redirect_to root_url unless !user.librarian
+  end
+
 end

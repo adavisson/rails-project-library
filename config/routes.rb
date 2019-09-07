@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :users
 
   #Special Checkout paths
-  get '/check_out/:book_id' => 'check_out_logs#new', as: 'check_out_page'
+  #get '/check_out/:book_id' => 'check_out_logs#new', as: 'check_out_page'
+
+  # Nested Routes
+  resources :books, only: [:show] do
+    resources :check_out_logs, only: [:new]
+  end
 
   get '/signin' => 'sessions#new'
   post '/sessions' => 'sessions#create'
