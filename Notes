@@ -66,3 +66,4 @@ Other Notes:
   - Write check_out_logs functionality as nested under books
   - Look into using Devise
   - Prevent the same book from showing up twice on User show page
+  - Move user books from user show page to nested resource
