@@ -1,5 +1,15 @@
 <h1>Add a New Genre</h1>
 
+<% if @genre.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @genre.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @genre do |f| %>
   <div class="form-group">
     <%= f.label :name %>
