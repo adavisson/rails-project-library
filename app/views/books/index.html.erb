@@ -10,7 +10,13 @@
       <th>Title</th>
       <th>Author</th>
       <th>Genre</th>
-      <th>Available for Check Out?</th>
+      <th>
+        <% if @user %>
+          Overdue?
+        <% else %>
+          Available for Check Out?
+        <% end %>
+      </th>
       <th>View Book Page</th>
     </tr>
   </thead>
@@ -27,7 +33,11 @@
           <%= book.genre.name %>
         </td>
         <td>
-          <%= book.checked_out ? 'no' : 'yes' %>
+          <% if @user %>
+            <%= book.check_out_logs.last.overdue? ? 'yes' : 'no' %>
+          <% else %>
+            <%= book.checked_out ? 'no' : 'yes' %>
+          <% end %>
         </td>
         <td>
           <%= link_to "View", book_path(book) %>
