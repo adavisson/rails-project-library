@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     post '/check_out_logs/check_in/:id' => 'check_out_logs#check_in', as: 'check_in'
   end
 
+  resources :users, only: [:show] do
+    resources :books, only: [:index]
+  end
+
   get '/signin' => 'sessions#new'
   post '/sessions' => 'sessions#create'
   post '/signout' => 'sessions#destroy'

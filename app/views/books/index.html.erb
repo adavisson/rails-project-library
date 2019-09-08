@@ -1,4 +1,8 @@
-<h1>List of Books</h1>
+<% if @user %>
+  <h1><%= @user.name %>'s Books</h1>
+<% else %>
+  <h1>List of Books</h1>
+<% end %>
 
 <table class="table">
   <thead>
@@ -32,3 +36,7 @@
     <% end %>
   </tbody>
 </table>
+
+<% if @user && @books == [] %>
+  <p align=center>You currently have no books checked out to you.</p>
+<% end %>

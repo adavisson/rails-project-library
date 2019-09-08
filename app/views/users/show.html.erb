@@ -4,9 +4,6 @@
 
 <br>
 
-<h2>Your books<h2>
-<% @user.books.each do |book| %>
-  <% if book.checked_out && (book.present_user_id == @user.id) %>
-    <%= link_to "#{book.title}", book_path(book) %> - <%= link_to "#{book.author.name}", author_path(book.author) %><br>
-  <% end %>
-<% end%>
+
+<!-- REMOVE THIS -->
+<h4><%= link_to "View Your Books", user_books_path(@user) %></h4>

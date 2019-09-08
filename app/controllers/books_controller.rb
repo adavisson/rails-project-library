@@ -4,7 +4,18 @@ class BooksController < ApplicationController
   before_action :require_librarian, only: [:new, :create]
 
   def index
-    @books = Book.all
+    @user = nil
+    @books = []
+    if params.include? :user_id
+      @user = User.find(params[:user_id])
+      Book.all.each do |book|
+        if book.present_user_id == @user.id
+          @books << book
+        end
+      end
+    else
+      @books = Book.all
+    end
   end
 
   def new
