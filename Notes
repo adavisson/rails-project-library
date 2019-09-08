@@ -60,3 +60,4 @@ Other Notes:
   - Condense routes.rb to only allow routes that are used
   - Add Delete Account functionality?
   - Look into using Devise
+  - Add edit form for book and author and user password
