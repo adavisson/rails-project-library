@@ -2,10 +2,8 @@
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>Librarian?</strong> <%= @user.librarian ? 'yes' : 'no' %></p>
 <br>
-<p><%= link_to "Change Password", edit_user_path(@user) %>
-
+<div>
+  <p><%= button_to "Change Password", edit_user_path(@user), class: "btn btn-primary", method: :get %></p>
+  <p><%= button_to "View Your Books", user_books_path(@user), class: "btn btn-primary", method: :get %></p>
+</div>
 <br>
-
-
-<!-- REMOVE THIS -->
-<h4><%= link_to "View Your Books", user_books_path(@user) %></h4>

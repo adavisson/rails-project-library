@@ -59,5 +59,4 @@ Other Notes:
   - Condense routes.rb to only allow routes that are used
   - Add Delete Account functionality?
   - Look into using Devise
-  - Add an overdue books page for librarians
-  - Add new genre and author options on create book page
+  - For video use Ron Rash and Dr. Seuss

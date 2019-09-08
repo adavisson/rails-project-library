@@ -2,17 +2,18 @@
 
 <br><br>
 
-<% if @user && @user.librarian %>
-  <p><%= link_to "Add Book", new_book_path %></p>
-  <p><%= link_to "Add Author", new_author_path %></p>
-  <p><%= link_to "Add Genre", new_genre_path %></p>
-  <p><%= link_to "View Overdue Books", overdue_path %></p>
+<% if @user %>
+  <p><%= button_to "View Books", books_path, class: "btn btn-primary", method: :get %></p>
+  <p><%= button_to "View Authors", authors_path, class: "btn btn-primary", method: :get %></p>
+  <p><%= button_to "View Genres", genres_path, class: "btn btn-primary", method: :get %></p>
 <% end %>
 
-<br><br>
+<br><br><br>
 
-<% if @user %>
-  <p><strong><%= link_to "View Books", books_path %></strong></p>
-  <p><strong><%= link_to "View Authors", authors_path %></strong></p>
-  <p><strong><%= link_to "View Genres", genres_path %></strong></p>
+<% if @user && @user.librarian %>
+  <h3>Librarian Functions</h3>
+  <%= link_to "Add Book", new_book_path %>&nbsp&nbsp
+  <%= link_to "Add Author", new_author_path %>&nbsp&nbsp
+  <%= link_to "Add Genre", new_genre_path %>&nbsp&nbsp
+  <%= link_to "View Overdue Books", overdue_path %>&nbsp&nbsp
 <% end %>

@@ -8,7 +8,7 @@ class CheckOutLog < ApplicationRecord
   def overdue?
     # Due date is 14 days from check_out_date
     days = (Date.today - self.check_out_date)
-    if days > 0
+    if days > 14
       true
     else
       false
