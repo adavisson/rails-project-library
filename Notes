@@ -56,8 +56,8 @@ Checklist:
 
 Other Notes:
   - Commit frequently and make messages meaningful
-  - !!!!!Think about adding check in and check out dates to look for overdue books?
   - Condense routes.rb to only allow routes that are used
   - Add Delete Account functionality?
   - Look into using Devise
-  - Add edit form for book and author and user password
+  - Add an overdue books page for librarians
+  - Add new genre and author options on create book page
