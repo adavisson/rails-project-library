@@ -1,9 +1,9 @@
-<h1>Add a New Genre</h1>
+<h1>Edit <%= @author.name %></h1>
 
-<% if @genre.errors.any? %>
+<% if @author.errors.any? %>
   <div id="error_explanation">
     <ul>
-      <% @genre.errors.full_messages.each do |msg| %>
+      <% @author.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

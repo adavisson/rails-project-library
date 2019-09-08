@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   
   before_action :require_login
-  before_action :require_librarian, only: [:new, :create]
+  before_action :require_librarian, only: [:new, :create, :edit, :update]
 
   def index
     @user = nil
@@ -40,8 +40,11 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to book_path(@book)
+    if @book.update(book_params)
+      redirect_to book_path(@book)
+    else
+      render :edit
+    end
   end
 
   def show

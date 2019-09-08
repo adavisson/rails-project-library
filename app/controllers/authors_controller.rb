@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
 
   before_action :require_login
-  before_action :require_librarian, only: [:new, :create]
+  before_action :require_librarian, only: [:new, :create, :edit, :update]
 
   def index
     @authors = Author.all
@@ -17,6 +17,19 @@ class AuthorsController < ApplicationController
       redirect_to author_path(author)
     else
       render :new
+    end
+  end
+
+  def edit
+    @author = Author.find(params[:id])
+  end
+
+  def update
+    @author = Author.find(params[:id])
+    if @author.update(author_params)
+      redirect_to author_page(@author)
+    else
+      render :edit
     end
   end
 
