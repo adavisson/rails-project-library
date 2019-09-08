@@ -8,6 +8,9 @@ class BooksController < ApplicationController
     @books = []
     if params.include? :user_id
       @user = User.find(params[:user_id])
+      if @user != current_user
+        redirect_to root_path
+      end
       Book.all.each do |book|
         if book.present_user_id == @user.id
           @books << book

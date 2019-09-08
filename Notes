@@ -56,14 +56,7 @@ Checklist:
 
 Other Notes:
   - Commit frequently and make messages meaningful
-  - A librarian has the ability to create new books but not check them out
-  - A normal user can check books out, but not create them
-  - Think about adding age restrictions on books?
   - !!!!!Think about adding check in and check out dates to look for overdue books?
   - Condense routes.rb to only allow routes that are used
   - Add Delete Account functionality?
-  - Restrict show page to current user
-  - Write check_out_logs functionality as nested under books
   - Look into using Devise
-  - Prevent the same book from showing up twice on User show page
-  - Move user books from user show page to nested resource
