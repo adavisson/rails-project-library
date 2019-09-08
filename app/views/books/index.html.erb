@@ -10,6 +10,9 @@
       <th>Title</th>
       <th>Author</th>
       <th>Genre</th>
+      <% if @user %>
+        <th>Due Date</th>
+      <% end %>
       <th>
         <% if @user %>
           Overdue?
@@ -32,6 +35,11 @@
         <td>
           <%= book.genre.name %>
         </td>
+        <% if @user %>
+          <td>
+            <%= book.check_out_logs.last.due_date %>
+          </td>
+        <% end %>
         <td>
           <% if @user %>
             <%= book.check_out_logs.last.overdue? ? 'yes' : 'no' %>
