@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   post '/signout' => 'sessions#destroy'
   get '/auth/google_oauth2/callback' => 'sessions#create'
+  get '/overdue_books' => 'books#overdue', as: 'overdue'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

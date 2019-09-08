@@ -14,4 +14,8 @@ class CheckOutLog < ApplicationRecord
       false
     end
   end
+
+  def due_date
+    self.check_out_date + 14.days
+  end
 end

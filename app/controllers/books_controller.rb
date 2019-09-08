@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   
   before_action :require_login
-  before_action :require_librarian, only: [:new, :create, :edit, :update]
+  before_action :require_librarian, only: [:new, :create, :edit, :update, :overdue]
 
   def index
     @user = nil
@@ -50,6 +50,13 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @user = current_user
+  end
+
+  def overdue
+    @books = []
+    Book.all.each do |book|
+      @books << book if book.check_out_logs.last.overdue?
+    end
   end
 
   private
