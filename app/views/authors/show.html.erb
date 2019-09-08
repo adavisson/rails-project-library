@@ -1,6 +1,8 @@
 <h1><%= @author.name %></h1>
 <p><strong>Is the author dead? </strong><%= @author.deceased ? 'yes' : 'no' %></p>
-
+<% if @user.librarian %>
+  <%= button_to "Edit Author", edit_author_path(@author), class:"btn btn-primary", method: :get %>
+<% end %>
 <br><br>
 
 <% if @author.books != [] %>

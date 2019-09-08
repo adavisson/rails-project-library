@@ -34,6 +34,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @author = Author.find(params[:id])
   end
 

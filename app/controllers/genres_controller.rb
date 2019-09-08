@@ -34,6 +34,7 @@ class GenresController < ApplicationController
   end
 
   def show
+    @user = current_user
     @genre = Genre.find(params[:id])
   end
 
