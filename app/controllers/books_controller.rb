@@ -55,7 +55,9 @@ class BooksController < ApplicationController
   def overdue
     @books = []
     Book.all.each do |book|
-      @books << book if (book.check_out_logs.last.overdue? && book.present_user_id != nil)
+      if book.check_out_logs.last
+        @books << book if (book.check_out_logs.last.overdue? && book.present_user_id != nil)
+      end
     end
   end
 
