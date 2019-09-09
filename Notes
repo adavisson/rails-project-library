@@ -59,4 +59,10 @@ Other Notes:
   - Condense routes.rb to only allow routes that are used
   - Add Delete Account functionality?
   - Look into using Devise
+
   - For video use Ron Rash and Dr. Seuss
+  - Alter source code to make book appear overdue
+  - User: Tom Hanks
+          tomhanks@hollywood.com
+          password: castaway
+          new password: forestgump
