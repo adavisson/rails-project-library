@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   
-  before_action :require_login
+  before_action :require_login # move to application controller
   before_action :require_librarian, only: [:new, :create, :edit, :update, :overdue]
 
   def index
@@ -15,11 +15,19 @@ class BooksController < ApplicationController
         if book.present_user_id == @user.id
           @books << book
         end
+        # 'Book.where' pass work to db
       end
     else
       @books = Book.all
     end
   end
+
+  ##############################
+  def checked_out
+    @user = current_user
+    @books = Book.checked_out(@user.id)
+  end
+  ##############################
 
   def new
     @book = Book.new
@@ -35,7 +43,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id]) # move to a before action
   end
 
   def update

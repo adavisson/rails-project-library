@@ -8,4 +8,9 @@ class Book < ApplicationRecord
   has_many :check_out_logs
   has_many :users, through: :check_out_logs
 
+
+  def self.checked_out(user_id)
+    where(present_user_id: user_id)
+  end
+
 end
