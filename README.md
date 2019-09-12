@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version = 2.5.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This application is designed to mimic a library. There are two types of user, standard and librarian. A 
+librarian can add books to the library and edit books that currently exist in the library. They can also
+add/edit genres and authors. Standar users can view books, check out books, and check in books. There is
+also integrated authentication with Google.

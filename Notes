@@ -56,8 +56,6 @@ Checklist:
 
 Other Notes:
   - Commit frequently and make messages meaningful
-  - Condense routes.rb to only allow routes that are used
-  - Add Delete Account functionality?
   - Look into using Devise
 
   - For video use Ron Rash and Dr. Seuss
