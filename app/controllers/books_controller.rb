@@ -5,29 +5,15 @@ class BooksController < ApplicationController
 
   def index
     @user = nil
-    @books = []
+    #@books = []
     if params.include? :user_id
       @user = User.find(params[:user_id])
-      if @user != current_user
-        redirect_to root_path
-      end
-      Book.all.each do |book|
-        if book.present_user_id == @user.id
-          @books << book
-        end
-        # 'Book.where' pass work to db
-      end
+      redirect_to root_path if @user != current_user
+      @books = Book.checked_out(@user.id)
     else
       @books = Book.all
     end
   end
-
-  ##############################
-  def checked_out
-    @user = current_user
-    @books = Book.checked_out(@user.id)
-  end
-  ##############################
 
   def new
     @book = Book.new
