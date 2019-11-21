@@ -64,6 +64,10 @@ Other Notes:
           tomhanks@hollywood.com
           password: castaway
           new password: forestgump
+  - User: John Smith
+          johnsmith@example.com
+          password: Password123
+          new password: Password456
 
 - has_secure_password is not provided bcrypt
 - work on DRYing up controllers
